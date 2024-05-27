@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  background-size: cover;
+  backdrop-filter: blur(3px);
+}
+
+.mainContainer {
+  display: grid;
+  width: 20rem;
+  height: auto;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 1em;
+  align-items: center;
+}
+
+.searchInput {
+  width: 100%;
+  display: flex;
+  padding: 1rem 1rem;
+  justify-content: center;
+}
+
+.searchInput input {
+  width: 100%;
+  height: 2rem;
+  outline: none;
+  font-size: 0.8rem;
+  color: #525050;
+  padding: 0.2rem 0.5rem;
+  border-radius: 1.5rem;
+  border: 1px solid #b3b3b3;
+}
+
+.searchInput input:focus {
+  border: 1px solid #9dc9dc;
+}
+
+.searchInput button {
+  width: 2.2rem;
+  height: 2rem;
+  cursor: pointer;
+  color: #9b9b9b;
+  border-radius: 50%;
+  margin-left: 0.4rem;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  border: 1px solid #b3b3b3;
+}
+
+.searchInput button:hover {
+  color: #fff;
+  background-color: #9dc9dc;
+  border: 1px solid #9dc9dc;
+}
+
+.weatherIcon {
+  display: flex;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  justify-content: center;
+}
+
+.weatherIcon img {
+  max-width: 100%;
+  width: 8rem;
+}
+
+.cityDetails {
+  color: #323232;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.desc {
+  text-transform: capitalize;
+}
+
+.atmosDetails {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr auto;
+  padding: 1rem;
+  justify-items: center;
+}
+
+.humidityImg {
+  max-height: 4rem;
+  margin-right: 0.5rem;
+}
+
+.humidity {
+  text-align: center;
+}
+
+.windSpeed {
+  max-height: 4rem;
+  margin-right: 0.5rem;
+}
+
+.windTextBox {
+  text-align: center;
+}
+
+/* DROPDOWN LANGUAGE SELECTION */
+ul {
+  list-style-type: none;
+  justify-self: end;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.lang-select {
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+
+.lang-title {
+  display: block;
+  width: 100px;
+  height: 25px;
+  padding: 5px 0 0;
+  background: #9dc9dc;
+  text-align: center;
+  color: #fff;
+  /* font-weight: bold; */
+  border-radius: 3px;
+  transition: 0.3s background-color;
+}
+
+.lang-title:before {
+  content: "";
+  display: block;
+  height: 0;
+  border-top: 2px solid #9dc9dc;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 0 solid #ddd;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 101;
+  transition: 0.2s 0.2s border-top ease-out, 0.3s border-top-color;
+}
+
+.lang-title:hover {
+  background: #45aad4;
+}
+
+.lang-title:hover:before {
+  border-top-color: #45aad4;
+}
+
+.lang-select:hover > .lang-title:before {
+  border-top-width: 0;
+  transition: 0.2s border-top-width ease-in, 0.3 border-top-color;
+}
+
+.lang-title:after {
+  content: "";
+  display: block;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 0 solid #ebebeb;
+  /* border-radius: 3px; */
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 101;
+  transition: 0.2s border-bottom ease-in;
+}
+
+.lang-select:hover > .lang-title:after {
+  border-bottom-width: 5px;
+  transition: 0.2s 0.2s border-bottom-width ease-out;
+}
+
+.lang-dropdown {
+  min-width: 100%;
+  padding: 15px 0;
+  position: absolute;
+  background: #ebebeb;
+  border-radius: 3px;
+  z-index: 100;
+  transition: 0.5s padding, 0.5s background;
+}
+
+.lang-dropdown:after {
+  content: "";
+  display: block;
+  height: 0;
+  border-top: 3px solid #ebebeb;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 101;
+  transition: 0.5s border-top;
+}
+
+.lang-select:not(:hover) > .lang-dropdown {
+  padding: 3px 0;
+  background: #ddd;
+  z-index: 99;
+}
+
+.lang-select:not(:hover) > .lang-dropdown:after {
+  border-top-color: #ddd;
+}
+
+.lang-select:not(:hover) > .lang-title:after {
+  border-bottom-color: #ddd;
+}
+
+.lang-dropdown > * {
+  overflow: hidden;
+  height: 30px;
+  padding: 5px 10px;
+  background: rgba(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.lang-dropdown > *:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.lang-select:not(:hover) > .lang-dropdown > * {
+  visibility: hidden;
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0;
+  color: rgba(25, 25, 25, 0);
+  transition: 0.5s 0.1s height, 0.5s 0.1s padding, 0.5s 0.1s margin, 0.3s color,
+    0.6s visibility;
+  z-index: 99;
+}
+
+.langList > * {
+  float: left;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,22 +1,26 @@
+API = "7b8085c2e5f6b84e27d16fa26c487a51";
 const searchInput = document.querySelector("#searchInput");
 const searchButton = document.querySelector("#searchButton");
+const locationNameEl = document.querySelector(".locationName");
+const currentDateEl = document.querySelector(".currentDate");
+const weatherIcon = document.querySelector("#weatherIcon");
+const windSpeed = document.querySelector("#windSpeed");
+const humidity = document.querySelector(".humidity");
+const weather = document.querySelector(".weather");
+const desc = document.querySelector(".desc");
 const bodyImage = document.querySelector("body");
 const langEn = document.querySelectorAll('[lang="en"]');
 const langJp = document.querySelectorAll('[lang="jp"]');
 const langEs = document.querySelectorAll('[lang="es"]');
 const langFr = document.querySelectorAll('[lang="fr"]');
-let weatherIcon = document.querySelector("#weatherIcon");
-let windSpeed = document.querySelector("#windSpeed");
-let humidity = document.querySelector(".humidity");
-let weather = document.querySelector(".weather");
-let desc = document.querySelector(".desc");
-API = "7b8085c2e5f6b84e27d16fa26c487a51";
-// Put in my own API key
 
 ("use strict");
 
 // For multilanguage functionality
 let currentLang = "en";
+
+// Grabbing date
+currentDateEl.innerHTML = new Date().toLocaleDateString();
 
 // Applying weather data
 const setWeatherDetails = data => {
@@ -24,6 +28,8 @@ const setWeatherDetails = data => {
   weather.innerHTML = `${Math.round(data.main.temp - 273.15)}°C`;
   humidity.innerHTML = `${data.main.humidity}%`;
   windSpeed.innerHTML = `${data.wind.speed}km/h`;
+  // using searchInput.value instead of data.name since latter doesn't show city names in Japanese syllabary
+  locationNameEl.innerHTML = searchInput.value;
   console.log(data.weather[0].main);
   switch (data.weather[0].main) {
     case "Clouds":

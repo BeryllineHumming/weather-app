@@ -13,15 +13,6 @@
   </head>
   <body id="bodyBackground">
     <div class="mainContainer">
-      <ul class="langList">
-        <li class="lang-select"><span class="lang-title" lang="en">Language</span><span class="lang-title hidden" lang="jp">言語</span><span class="lang-title hidden" lang="es">Lengua</span><span class="lang-title hidden" lang="fr">Langue</span>
-        <ul class="lang-dropdown">
-          <li onclick="changeLang(1)">English</li>
-          <li onclick="changeLang(2)">日本語</li>
-          <li onclick="changeLang(3)">Español</li>
-          <li onclick="changeLang(4)">Français</li>
-        </ul></li>
-      </ul>
       <div class="searchInput">
         <input
           type="text"
@@ -33,6 +24,8 @@
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
       </div>
+      <div class="date-place"><span class="locationName"></span><span class="currentDate"></span>
+      </div>
       <div class="weatherDetails">
         <div class="weatherIcon">
           <img src="img/sun.png" alt="Clouds" id="weatherIcon" />
@@ -42,12 +35,22 @@
           <div class="desc"></div>
         </div>
         <div class="atmosDetails">
-          <img class="humidityImg" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgr7XehXJkOPXbZr8xL42sZEFYlS-1fQcvUMsS2HrrV8pcj3GDFaYmYmeb3vXfMrjGXpViEDVfvLcqI7pJ03pKb_9ldQm-Cj9SlGW2Op8rxArgIhlD6oSLGQQKH9IqH1urPpQ4EAMCs3KOwbzLu57FDKv01PioBJBdR6pqlaxZTJr3HwxOUlFhC9EFyw/s320/thermometer.png" alt="Humidity">
-          <img class="windSpeed" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiyaIguDPkbBMnUDQkGp3wLRj_kvd_GIQ4RHQar7a32mUGtwg3wHLIe0ejKqryX8dnJu-gqU6CBnDo47O7BlzCMCwRbB7u0Pj0CbtGwtyhd8Y8cgEMaSuZKrw5-62etXwo7UoY509umLmndsRmEqqO0FKocqTqjzHvJFC2AEEYjUax9tc1JMWxIWAQR4g/s320/wind.png" />
-          <div><p class="humidity"></p><span lang="en">Humidity</span><span lang="jp" class="hidden">湿度</span><span lang="es" class="hidden">Humedad</span><span lang="fr" class="hidden">Humidité</span></div>
-          <div class="windTextBox"><p id="windSpeed"></p><span lang="en">Wind Speed</span><span lang="jp" class="hidden">風</span><span lang="es" class="hidden">Velocidad del Viento</span><span lang="fr" class="hidden">Vitesse du Vent</span></div>
+          <div class="humidTextBox"><span lang="en">Humidity</span><span lang="jp" class="hidden">湿度</span><span lang="es" class="hidden">Humedad</span><span lang="fr" class="hidden">Humidité</span><p class="humidity"></p></div>
+          <div class="windTextBox"><span lang="en">Wind Speed</span><span lang="jp" class="hidden">風</span><span lang="es" class="hidden">Velocidad del Viento</span><span lang="fr" class="hidden">Vitesse du Vent</span><p id="windSpeed"></p></div>
       </div>
+      
+      <ul class="langList">
+        <li class="lang-select">
+          <span class="lang-title"><box-icon name='cog' ></box-icon></span>
+        <ul class="lang-dropdown">
+          <li onclick="changeLang(1)">English</li>
+          <li onclick="changeLang(2)">日本語</li>
+          <li onclick="changeLang(3)">Español</li>
+          <li onclick="changeLang(4)">Français</li>
+        </ul></li>
+      </ul>
     </div>
     <script src="script.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
   </body>
 </html>
